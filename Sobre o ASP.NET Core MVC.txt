@@ -1,0 +1,28 @@
+ASP.NET Core MVC é um framework de desenvolvimento de aplicativos web da Microsoft que segue o padrão de arquitetura Model-View-Controller (MVC). Ele é uma evolução do ASP.NET MVC (não baseado no Core) e foi projetado para ser multiplataforma, mais leve e de alto desempenho.
+
+Aqui estão algumas das principais características e conceitos do ASP.NET Core MVC:
+
+1. Padrão MVC: O ASP.NET Core MVC segue o padrão MVC, que divide a aplicação em três componentes principais:
+   - Model: Representa os dados e a lógica de negócios da aplicação.
+   - View: Lida com a apresentação e a interface do usuário.
+   - Controller: Gerencia as solicitações do cliente, coordena as ações apropriadas no modelo e decide qual visualização deve ser renderizada.
+
+2. Multiplataforma: O ASP.NET Core é multiplataforma e pode ser executado em sistemas operacionais Windows, Linux e macOS.
+
+3. Roteamento flexível: O roteamento no ASP.NET Core MVC é altamente configurável, permitindo que você defina URLs amigáveis e rotas personalizadas.
+
+4. Injeção de Dependência: O ASP.NET Core MVC inclui suporte integrado para injeção de dependência, o que facilita a criação de componentes reutilizáveis e a manutenção de código limpo.
+
+5. Suporte a Testes: O framework é projetado para facilitar os testes unitários e de integração, o que é importante para o desenvolvimento de software de qualidade.
+
+6. Middleware: O ASP.NET Core MVC faz parte do ASP.NET Core, que utiliza o conceito de middleware para processar solicitações HTTP. Isso permite que você adicione componentes personalizados para manipular as solicitações antes de chegar ao MVC.
+
+7. Model Binding: Oferece suporte ao mapeamento automático dos dados da solicitação HTTP para os modelos do MVC.
+
+8. Suporte a API Web: Além de criar aplicativos web tradicionais, o ASP.NET Core MVC é usado para construir APIs web (ASP.NET Core Web API) para comunicação com aplicativos front-end ou outros serviços.
+
+9. Suporte a Autenticação e Autorização: O framework facilita a implementação de autenticação e autorização, incluindo suporte para autenticação de identidade, tokens JWT, OAuth, etc.
+
+10. Extensibilidade: É altamente extensível, permitindo que você adicione componentes, bibliotecas e funcionalidades personalizadas.
+
+O ASP.NET Core MVC é uma escolha popular para desenvolvedores que desejam criar aplicativos web modernos e escaláveis, e ele é amplamente usado na construção de aplicativos empresariais, sistemas de gerenciamento de conteúdo, aplicativos de comércio eletrônico e muito mais.
