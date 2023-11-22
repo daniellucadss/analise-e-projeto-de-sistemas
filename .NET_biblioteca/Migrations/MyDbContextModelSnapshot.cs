@@ -3,11 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Models;
+using dotNET_biblioteca.Models;
 
 #nullable disable
 
-namespace _NET_biblioteca.Migrations
+namespace dotNET_biblioteca.Migrations
 {
     [DbContext(typeof(MyDbContext))]
     partial class MyDbContextModelSnapshot : ModelSnapshot
@@ -19,261 +19,235 @@ namespace _NET_biblioteca.Migrations
                 .HasAnnotation("ProductVersion", "6.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("BibliotecarioMembro", b =>
-                {
-                    b.Property<int>("BibliotecarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MembrosId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BibliotecarioId", "MembrosId");
-
-                    b.HasIndex("MembrosId");
-
-                    b.ToTable("BibliotecarioMembro");
-                });
-
-            modelBuilder.Entity("Models.Alertas", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Alert", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("BibliotecarioId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DataEmissao")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("DataRetorno")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("Multa")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NomeLivro")
+                    b.Property<string>("BookName")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int>("Fine")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("IssueDate")
+                        .HasColumnType("date");
+
+                    b.Property<int?>("LibrarianId")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("ReturnDate")
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BibliotecarioId");
+                    b.HasIndex("LibrarianId");
 
-                    b.ToTable("Alertas");
+                    b.ToTable("Alerts");
                 });
 
-            modelBuilder.Entity("Models.Bibliotecario", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Contato")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Endereco")
+                    b.Property<string>("AuthorName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Bibliotecario");
-                });
-
-            modelBuilder.Entity("Models.Catalogo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("NomeAutor")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("NumeroCopias")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Catalogo");
-                });
-
-            modelBuilder.Entity("Models.Livros", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("BibliotecarioId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CatalogoId")
+                    b.Property<int?>("CatalogId")
                         .HasColumnType("int");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("MembroId")
+                    b.Property<int?>("LibrarianId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NomeAutor")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("NomeLivro")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("QuantidadeLivro")
+                    b.Property<int?>("MemberId")
                         .HasColumnType("int");
+
+                    b.Property<int>("NumberOfBooks")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BibliotecarioId");
+                    b.HasIndex("CatalogId");
 
-                    b.HasIndex("CatalogoId");
+                    b.HasIndex("LibrarianId");
 
-                    b.HasIndex("MembroId");
+                    b.HasIndex("MemberId");
 
-                    b.ToTable("Livros");
+                    b.ToTable("Books");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Livros");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Book");
                 });
 
-            modelBuilder.Entity("Models.Membro", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Catalog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Contato")
+                    b.Property<string>("AuthorName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("NumberOfCopies")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Catalogs");
+                });
+
+            modelBuilder.Entity("dotNET_biblioteca.Models.Librarian", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Phone")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Librarians");
+                });
+
+            modelBuilder.Entity("dotNET_biblioteca.Models.Member", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Endereco")
+                    b.Property<int?>("LibrarianId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int>("Phone")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Membro");
+                    b.HasIndex("LibrarianId");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Membro");
+                    b.ToTable("Members");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Member");
                 });
 
-            modelBuilder.Entity("Models.CorpoDocente", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.FacultyMember", b =>
                 {
-                    b.HasBaseType("Models.Membro");
+                    b.HasBaseType("dotNET_biblioteca.Models.Member");
 
                     b.Property<string>("Facultycoll")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasDiscriminator().HasValue("CorpoDocente");
+                    b.HasDiscriminator().HasValue("FacultyMember");
                 });
 
-            modelBuilder.Entity("Models.Estudante", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.GeneralBook", b =>
                 {
-                    b.HasBaseType("Models.Membro");
+                    b.HasBaseType("dotNET_biblioteca.Models.Book");
+
+                    b.HasDiscriminator().HasValue("GeneralBook");
+                });
+
+            modelBuilder.Entity("dotNET_biblioteca.Models.ReferenceBook", b =>
+                {
+                    b.HasBaseType("dotNET_biblioteca.Models.Book");
+
+                    b.HasDiscriminator().HasValue("ReferenceBook");
+                });
+
+            modelBuilder.Entity("dotNET_biblioteca.Models.Student", b =>
+                {
+                    b.HasBaseType("dotNET_biblioteca.Models.Member");
 
                     b.Property<string>("Studentcoll")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasDiscriminator().HasValue("Estudante");
+                    b.HasDiscriminator().HasValue("Student");
                 });
 
-            modelBuilder.Entity("Models.LivroGeral", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Alert", b =>
                 {
-                    b.HasBaseType("Models.Livros");
-
-                    b.HasDiscriminator().HasValue("LivroGeral");
+                    b.HasOne("dotNET_biblioteca.Models.Librarian", null)
+                        .WithMany("Alerts")
+                        .HasForeignKey("LibrarianId");
                 });
 
-            modelBuilder.Entity("Models.LivroReferencia", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Book", b =>
                 {
-                    b.HasBaseType("Models.Livros");
+                    b.HasOne("dotNET_biblioteca.Models.Catalog", "Catalog")
+                        .WithMany("Books")
+                        .HasForeignKey("CatalogId");
 
-                    b.HasDiscriminator().HasValue("LivroReferencia");
+                    b.HasOne("dotNET_biblioteca.Models.Librarian", null)
+                        .WithMany("Books")
+                        .HasForeignKey("LibrarianId");
+
+                    b.HasOne("dotNET_biblioteca.Models.Member", null)
+                        .WithMany("Books")
+                        .HasForeignKey("MemberId");
+
+                    b.Navigation("Catalog");
                 });
 
-            modelBuilder.Entity("BibliotecarioMembro", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Member", b =>
                 {
-                    b.HasOne("Models.Bibliotecario", null)
-                        .WithMany()
-                        .HasForeignKey("BibliotecarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Models.Membro", null)
-                        .WithMany()
-                        .HasForeignKey("MembrosId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("dotNET_biblioteca.Models.Librarian", null)
+                        .WithMany("Members")
+                        .HasForeignKey("LibrarianId");
                 });
 
-            modelBuilder.Entity("Models.Alertas", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Catalog", b =>
                 {
-                    b.HasOne("Models.Bibliotecario", "Bibliotecario")
-                        .WithMany("Alertas")
-                        .HasForeignKey("BibliotecarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Bibliotecario");
+                    b.Navigation("Books");
                 });
 
-            modelBuilder.Entity("Models.Livros", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Librarian", b =>
                 {
-                    b.HasOne("Models.Bibliotecario", "Bibliotecario")
-                        .WithMany("Livros")
-                        .HasForeignKey("BibliotecarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Alerts");
 
-                    b.HasOne("Models.Catalogo", "Catalogo")
-                        .WithMany("Livros")
-                        .HasForeignKey("CatalogoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Books");
 
-                    b.HasOne("Models.Membro", null)
-                        .WithMany("Livros")
-                        .HasForeignKey("MembroId");
-
-                    b.Navigation("Bibliotecario");
-
-                    b.Navigation("Catalogo");
+                    b.Navigation("Members");
                 });
 
-            modelBuilder.Entity("Models.Bibliotecario", b =>
+            modelBuilder.Entity("dotNET_biblioteca.Models.Member", b =>
                 {
-                    b.Navigation("Alertas");
-
-                    b.Navigation("Livros");
-                });
-
-            modelBuilder.Entity("Models.Catalogo", b =>
-                {
-                    b.Navigation("Livros");
-                });
-
-            modelBuilder.Entity("Models.Membro", b =>
-                {
-                    b.Navigation("Livros");
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

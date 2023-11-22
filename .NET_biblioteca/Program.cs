@@ -1,18 +1,12 @@
+using dotNET_biblioteca.Models;
 using Microsoft.EntityFrameworkCore;
-using Models;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<ApiDbContext>(options =>
-
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ApiDbContext")));
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-string mysqlconnection = builder.Configuration.GetConnectionString("MyDbContext");
-builder.Services.AddDbContext<MyDbContext>(options => options.UseMySql(mysqlconnection, ServerVersion.AutoDetect(mysqlconnection)));
+string mySqlConnection = builder.Configuration.GetConnectionString("MyDbContext");
+builder.Services.AddDbContext<MyDbContext>(options => options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
 
 var app = builder.Build();
 

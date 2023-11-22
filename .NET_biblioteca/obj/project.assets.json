@@ -9908,11 +9908,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\danie\\Documents\\ADS\\Análise e Projeto de Sistemas\\.NET_biblioteca\\.NET_biblioteca.csproj",
-      "projectName": ".NET_biblioteca",
-      "projectPath": "C:\\Users\\danie\\Documents\\ADS\\Análise e Projeto de Sistemas\\.NET_biblioteca\\.NET_biblioteca.csproj",
+      "projectUniqueName": "C:\\Users\\danie\\Documents\\ADS\\Análise e Projeto de Sistemas\\dotnet_library\\dotNET_biblioteca.csproj",
+      "projectName": "dotNET_biblioteca",
+      "projectPath": "C:\\Users\\danie\\Documents\\ADS\\Análise e Projeto de Sistemas\\dotnet_library\\dotNET_biblioteca.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\danie\\Documents\\ADS\\Análise e Projeto de Sistemas\\.NET_biblioteca\\obj\\",
+      "outputPath": "C:\\Users\\danie\\Documents\\ADS\\Análise e Projeto de Sistemas\\dotnet_library\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config"

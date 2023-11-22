@@ -1,4 +1,4 @@
-namespace _NET_biblioteca.Models;
+namespace dotNET_biblioteca.Models;
 
 public class ErrorViewModel
 {

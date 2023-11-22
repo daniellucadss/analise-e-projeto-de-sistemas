@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F6FijqkyWDzZ5qyxzJgmcJEVU0OSK9rVaELI230wqxY9YXfIx3hw/IMDULkohR3jz9aCNzigtbrLL8K3NO6nLw==",
+  "dgSpecHash": "kZppIRqP27chjZhh6oe6zUX+disTWB9lK+XcUTtZFoZpUN/wlnnkg4E+2GX4R9AKX5EcG61LnRVG+q1a3pnxuQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\danie\\Documents\\ADS\\Análise e Projeto de Sistemas\\.NET_biblioteca\\.NET_biblioteca.csproj",
+  "projectFilePath": "C:\\Users\\danie\\Documents\\ADS\\Análise e Projeto de Sistemas\\dotnet_library\\dotNET_biblioteca.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danie\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\danie\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

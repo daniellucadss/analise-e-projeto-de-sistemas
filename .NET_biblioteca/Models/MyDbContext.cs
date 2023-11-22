@@ -4,22 +4,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Models
+namespace dotNET_biblioteca.Models
 {
     public class MyDbContext : DbContext
     {
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
-        
-        public DbSet<Alertas> Alertas { get; set; } 
-        public DbSet<Bibliotecario> Bibliotecario { get; set; }
-        public DbSet<Catalogo> Catalogo { get; set; }
-        public DbSet<CorpoDocente> CorpoDocente { get; set; }
-        public DbSet<Estudante> Estudante { get; set; }
-        public DbSet<LivroGeral> LivroGeral { get; set; }
-        public DbSet<LivroReferencia> LivroReferencia { get; set; }
-        public DbSet<Membro> Membro { get; set; }
-        public DbSet<Livros> Livros { get; set; }
+
+        public DbSet<Alert> Alerts { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Catalog> Catalogs { get; set; }
+        public DbSet<FacultyMember> FacultyMembers { get; set; }
+        public DbSet<GeneralBook> GeneralBooks { get; set; }
+        public DbSet<Librarian> Librarians { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<ReferenceBook> ReferenceBooks { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 }

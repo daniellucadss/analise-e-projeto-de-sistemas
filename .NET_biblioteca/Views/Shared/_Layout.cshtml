@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - _NET_biblioteca</title>
+    <title>@ViewData["Title"] - dotNET_biblioteca</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/_NET_biblioteca.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/dotNET_biblioteca.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">_NET_biblioteca</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">dotNET_biblioteca</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,19 +22,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-
                         <li class="nav-item">
-                           <a class="nav-link text-dark" asp-area="" asp-controller="Membro" asp-action="Index">Membros</a>
-                       </li>
-
-                       <li class="nav-item">
-                           <a class="nav-link text-dark" asp-area="" asp-controller="Bibliotecarios" asp-action="Index">Bibliotecarios</a>
-                       </li>
-
-                       <li class="nav-item">
-                           <a class="nav-link text-dark" asp-area="" asp-controller="Livros" asp-action="Index">Livros</a>
-                       </li>
-
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Alerts" asp-action="Index">Alerts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Index">Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Catalogs" asp-action="Index">Catalogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Librarians" asp-action="Index">Librarians</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Members" asp-action="Index">Members</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
@@ -51,7 +53,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - _NET_biblioteca - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - dotNET_biblioteca - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
